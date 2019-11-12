@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  emqx:
+    image: emqx/emqx:latest
+    ports:
+      - 18083:18083
+      - 8083:8083
+      - 1884:1884
+    environment:
+      EMQX_LOADED_PLUGINS: emqx_management | emqx_auth_http | emqx_recon | emqx_retainer | emqx_dashboard | emqx_auth_ldap | emqx_statsd
+      EMQX_NAME: push-service-emqx
+      EMQX_LISTENER__TCP__EXTERNAL: 1884
+
+
