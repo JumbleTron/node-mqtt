@@ -47,12 +47,12 @@ app.listen(3000, () => {
   const client  = mqtt.connect('mqtt://localhost:1884');
   client.on('connect', function () {
     client.publish('743ae58f-fd34-48a5-a3ce-a845687c6f6d', JSON.stringify({"czesc": "czesc"}), {qos: 2});
-    /*client.subscribe('743ae58f-fd34-48a5-a3ce-a845687c6f6d',{qos: 2}, function (err) {
+    client.subscribe('743ae58f-fd34-48a5-a3ce-a845687c6f6d',{qos: 2}, function (err) {
       if (err) {
         console.log(err);
       }
       client.publish('743ae58f-fd34-48a5-a3ce-a845687c6f6d', JSON.stringify({"czesc": "czesc"}), {qos: 2});
-    });*/
+    });
   });
   client.on('message', function (topic, message) {
     console.log(topic, message.toString());
